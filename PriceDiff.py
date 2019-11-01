@@ -19,13 +19,28 @@ xlListEnd = 10
 # if the price is different, write THE ENTIRE CONFIG to a new wb
 
 for x in range(0, xlListEnd):
-
   # serial numbers to test
   serialNumberToTest = sheet.cell_value(x, 11)
-  serialFromNewWorkbook = sheet.cell_value(x,11)
 
-  if serialNumberToTest != serialFromNewWorkbook:
-    continue
+  for y in range(0, xlListEnd):
+    serialFromNewWorkbook = newSheet.cell_value(y,11)
+    if serialNumberToTest != serialFromNewWorkbook:
+      #print(str(serialNumberToTest) + " does not equal " + str(serialFromNewWorkbook))
+      continue
+    else:
+      #print(str(serialNumberToTest) + " matches " + str(serialFromNewWorkbook))
+      #new costs
+      itemType = newSheet.cell_value(y,0)
+      newCost = newSheet.cell_value(y,14)
+      newCost2 = newSheet.cell_value(y,15)
+      newCost3 = newSheet.cell_value(y,16)
+      newCost4 = newSheet.cell_value(y,17)
+      newCost5 = newSheet.cell_value(y,18)
+      newOutCost = newSheet.cell_value(y,19)
+      newMSRP = newSheet.cell_value(y,20)
+      newSpecial1 = newSheet.cell_value(y,31)
+      newSpecial2 = newSheet.cell_value(y,32)
+      break
 
   #old costs
   cost = sheet.cell_value(x,14)
@@ -37,17 +52,6 @@ for x in range(0, xlListEnd):
   MSRP = sheet.cell_value(x,20)
   special1 = sheet.cell_value(x,31)
   special2 = sheet.cell_value(x,32)
-
-  #new costs
-  newCost = newSheet.cell_value(x,14)
-  newCost2 = newSheet.cell_value(x,15)
-  newCost3 = newSheet.cell_value(x,16)
-  newCost4 = newSheet.cell_value(x,17)
-  newCost5 = newSheet.cell_value(x,18)
-  newOutCost = newSheet.cell_value(x,19)
-  newMSRP = newSheet.cell_value(x,20)
-  newSpecial1 = newSheet.cell_value(x,31)
-  newSpecial2 = newSheet.cell_value(x,32)
 
   if serialNumberToTest == serialFromNewWorkbook:
 
@@ -74,13 +78,14 @@ for x in range(0, xlListEnd):
       newPrice = newPrice + 1 
     if special1 != newSpecial1:
       print("old special1: " + str(special1) + " new newSpecial1:" + str(newSpecial1))  
-      newPrice = newPrice + 1 
+      newPrice = newPrice + 1
     if special2 != newSpecial2:
       print("old special2: " + str(special2) + " new newSpecial2:" + str(newSpecial2))
       newPrice = newPrice + 1
+    if newPrice > 0:
+      print("price has changed!")
+      newPrice = 0
+    else:
+      newPrice = 0
 
-  if newPrice > 0:
-    print("price has changed!")
-    newPrice = 0
-  else:
-    newPrice = 0
+
