@@ -34,12 +34,8 @@ for x in range(0, xlListEnd):
   for y in range(0, updateXlListEnd):
     serialFromNewWorkbook = newSheet.cell_value(y,11)
     if serialNumberToTest != serialFromNewWorkbook:
-      #print(str(serialNumberToTest) + " does not equal " + str(serialFromNewWorkbook))
-      # if y == updateXlListEnd - 1:
-      #   print(str(serialNumberToTest) + ' Was not found ' + str(y))
       continue
     else:
-      # print(str(serialNumberToTest) + " matches " + str(serialFromNewWorkbook))
       numMatches = numMatches + 1
     
       #new
@@ -110,80 +106,3 @@ for x in range(0, xlListEnd):
 
 wbt.save("PriceChanges.xls")
 print("matches: " + str(numMatches))
-    # wst.write(modelStart, 3, thisMapp)
-    # wst.write(modelStart, 4, modelList[i]["name"])
-    # wst.write(modelStart, 5, "Equipment")
-    # wst.write(modelStart, 6,  category)
-    # wst.write(modelStart, 11, modelList[i]["productNumber"])
-    # wst.write(modelStart, 13, modelList[i]["name"])
-    # wst.write(modelStart, 14, 0)
-    # wst.write(modelStart, 15, 0)
-    # wst.write(modelStart, 16, 0)
-    # wst.write(modelStart, 17, 0)
-    # wst.write(modelStart, 18, modelList[i]["mapp"])
-    # wst.write(modelStart, 19, modelList[i]["mapp"])
-    # wst.write(modelStart, 20, modelList[i]["msrp"])
-    # wst.write(modelStart, 28, "Document Direction Ltd")
-    # wst.write(modelStart, 29, modelList[i]["desc"])
-    # wst.write(modelStart, 31, modelList[i]["rmapp"])
-    # wst.write(modelStart, 32, modelList[i]["rmapp2"])
-    # # write a bunch of zeros in the special pricing fields
-    # for j in range(0,38):
-    #   wst.write(modelStart,33+j, 0)
-    #     # write in accessories
-    #     for k in range(0, len(globalList)):
-    #       wst.write(globalStart, 0, "Access")
-    #       wst.write(globalStart, 3, thisMapp)
-    #       wst.write(globalStart, 8, "ACCESSORY")
-    #       wst.write(globalStart, 9, "N")
-    #       wst.write(globalStart, 11, globalList[k]["productNumber"])
-    #       wst.write(globalStart, 13, globalList[k]["name"])
-    #       wst.write(globalStart, 14, 0)
-    #       wst.write(globalStart, 15, 0)
-    #       wst.write(globalStart, 16, 0)
-    #       wst.write(globalStart, 17, 0)
-    #       wst.write(globalStart, 18, globalList[k]["mapp"])
-    #       wst.write(globalStart, 19, globalList[k]["mapp"])
-    #       wst.write(globalStart, 20, globalList[k]["msrp"])
-    #       wst.write(globalStart, 25, 0)
-    #       wst.write(globalStart, 29, globalList[k]["desc"])
-    #       wst.write(globalStart, 31, globalList[k]["rmapp"])
-    #       wst.write(globalStart, 32, globalList[k]["rmapp2"])
-    #       # write a bunch of zeros in the special pricing fields
-    #       for l in range(0,38):
-    #         wst.write(globalStart,33+l, 0)
-
-    #       globalStart = globalStart + 1
-
-    #     accStart = globalStart
-    #     # write in accessories
-    #     for j in range(0, len(accList)):
-    #       wst.write(accStart, 0, "Access")
-    #       wst.write(accStart, 3, thisMapp)
-    #       wst.write(accStart, 8, "ACCESSORY")
-    #       wst.write(accStart, 9, "N")
-    #       wst.write(accStart, 11, accList[j]["productNumber"])
-    #       wst.write(accStart, 13, accList[j]["name"])
-    #       wst.write(accStart, 14, 0)
-    #       wst.write(accStart, 15, 0)
-    #       wst.write(accStart, 16, 0)
-    #       wst.write(accStart, 17, 0)
-    #       wst.write(accStart, 18, accList[j]["mapp"])
-    #       wst.write(accStart, 19, accList[j]["mapp"])
-    #       wst.write(accStart, 20, accList[j]["msrp"])
-    #       wst.write(accStart, 25, 0)
-    #       wst.write(accStart, 29, accList[j]["desc"])
-    #       wst.write(accStart, 31, accList[j]["rmapp"])
-    #       wst.write(accStart, 32, accList[j]["rmapp2"])
-    #       # write a bunch of zeros in the special pricing fields
-    #       for m in range(0,38):
-    #         wst.write(accStart,33+m, 0)
-
-    #       accStart = accStart + 1
-        
-    #     globalStart = accStart
-    #     modelStart = accStart
-
-
-
-
